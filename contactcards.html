@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Cards</title>
+
+	<style>
+
+	div{
+		border: 5px solid black;
+		height: 300px;
+		width: 400px;
+		text-align: center;
+		font-size: 35px;
+
+
+	}
+
+	div p{
+		font-size: 14px;
+	}
+
+	.back{
+		display: none;
+		font-size: 22px;
+	}
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("form").submit(function(){
+				var first = $("#first_name").val();
+				var last = $("#last_name").val();
+				var desc = $("#desc").val();
+				$("body").append("<div class='card'><div class='front'>" + first + "<br> " + last + "<br> <p>Click for description!</p></div> <div class='back'>" + desc + "</div></div>");
+				return false;
+			});
+			$(document).on("click", ".card", function(){
+				$(this).children().toggle();
+			});
+		});
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<form>
+		<p>First name:<input type="text" id="first_name" name="first_name"></p>
+		<p>Last name:<input type="text" id="last_name" name="last_name"></p>
+		<p>Description:<input type="text" id="desc" name="desc"></p>
+		<p><input type="submit" value="Add User"></p>
+	</form>
+
+
+</body>
+</html>
